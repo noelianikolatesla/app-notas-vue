@@ -15,9 +15,23 @@ export const useNoteStore = defineStore('note', () => {
             content: 'Contraseña: 123456',
             marked: true
         }
-    ])
+    ]);
+
+    const createId = () => {
+        return Date.now().toString(36) + Math.random().toString(36).slice(2);
+    }
+
+    const addNote =(title) => {
+
+        notes.value.push({
+            id:createId(),
+            title,
+            marked:false
+        })
+    }
 
     return {
-        notes
+        notes,
+        addNote
     }
 })

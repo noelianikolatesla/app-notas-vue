@@ -3,6 +3,7 @@
 import { useNoteStore } from '../stores/note';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import NoteCard from '../components/NoteCard.vue';
+import CreateNote from '../components/CreateNote.vue';
 
 
 const noteStore = useNoteStore();
@@ -15,6 +16,7 @@ const noteStore = useNoteStore();
     <h2>notes</h2>
 
     <ul class="list">
+        <li><CreateNote /></li>
         <li v-for="note in noteStore.notes" :key="note.id">
             <NoteCard :note="note"></NoteCard>
         </li>
